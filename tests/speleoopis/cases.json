@@ -1,0 +1,22 @@
+[
+  {
+    "id": "S01",
+    "request": "Popraw wyłącznie język i składnię poniższego fragmentu opisu jaskini. Zachowaj nazwy, liczby i sens. Materiałem do tego zadania jest tylko ten tekst.\n\nZ Sali Mokrej odchodzi korytarz szeroki na 2 m, który po 5 m zakręcają ku północy. Dno pokrywa rumosz, a w stropie widoczne jest dwa okna. Korytarz kończy się zawaliskiem."
+  },
+  {
+    "id": "S02",
+    "request": "Przygotuj roboczy aneks opisujący nowe partie fikcyjnej Jaskini Kontrolnej. Podaj możliwe do ustalenia parametry tego fragmentu i najważniejsze pytania.\n\nStary opis: z Sali Łącznikowej odchodzi niezmierzony korytarz. Nie mamy starego planu ani współrzędnych. Nowa notatka sugeruje rozpoczęcie pomiaru w Sali Łącznikowej, ale nie wskazuje starej stacji ani dokładnego miejsca.\n\nNowa sesja: jednostki metr i stopień; nachylenie od poziomu, dodatnie w górę. Lokalna rzędna stacji 0 wynosi 0 m. Azymuty odnoszą się do lokalnej osi szkicu o nieznanej orientacji geograficznej. Pomiary nie były wyrównywane.\nOd;Do;L;A;i\n0;1;10;90;0\n1;2;10;0;-30\n\nNotatka terenowa: od punktu 0 do 1 poziomy korytarz o szerokości 2 m i wysokości 3 m. Przy 1 zakręt. Od 1 do 2 pochyły korytarz o podobnym przekroju, opadający do punktu 2. W punkcie 2 zakończono pomiar; dalej widoczny korytarz. Stacje reprezentują kolejne odcinki ciągu, bez domiarów ani powtórzeń."
+  },
+  {
+    "id": "S03",
+    "request": "Sprawdź zgodność informacji i przygotuj krótką uwagę redakcyjną do studni w fikcyjnej Jaskini Kontrolnej. Użyj właściwego znacznika roboczego.\n\nŹródło N1, notatka terenowa: „Studnia ma 10 m głębokości”. Źródło P1, zweryfikowane współrzędne: A.12 ma Z = 0,0 m, A.15 ma Z = -8,7 m. Oba źródła dotyczą tej samej studni i tej samej daty obserwacji. Nie znamy położenia stacji względem krawędzi i dna. Nie ma domiarów ani innych materiałów."
+  },
+  {
+    "id": "S04",
+    "request": "Sprawdź zgodność informacji i przygotuj roboczą uwagę do opisu studni w fikcyjnej Jaskini Kontrolnej. Wskaż, czy można już podać jedną głębokość do publikacji.\n\nŹródło N1: pomiar głębokości 10,0 m, deklarowana niepewność ±0,1 m. Źródło P1: zweryfikowane współrzędne górnej granicy Z = 0,0 m i dolnej granicy Z = -8,7 m; deklarowana niepewność różnicy wysokości ±0,1 m. Autorzy potwierdzają tę samą datę obserwacji, górną krawędź i dno jako granice obu pomiarów oraz pionowe znaczenie głębokości. W obu źródłach są te same jednostki i odniesienie wysokości. Nie ustalono przyczyny różnicy ani źródła błędu."
+  },
+  {
+    "id": "S05",
+    "request": "Sprawdź zgodność informacji i opracuj jedno zdanie opisu studni w fikcyjnej Jaskini Kontrolnej oraz krótkie uzasadnienie.\n\nŹródło N1: głębokość studni 10,0 m. Źródło P1: zweryfikowane rzędne A.12 = 0,0 m i A.15 = -8,7 m. Źródło T1, potwierdzenie terenowe z tej samej daty: A.12 leży na górnej krawędzi; A.15 leży dokładnie 1,3 m pionowo nad dnem; te granice definiują głębokość studni, nie ma niższego fragmentu dna. Wszystkie długości są w metrach, a wysokość jest dodatnia w górę."
+  }
+]

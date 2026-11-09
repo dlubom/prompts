@@ -52,6 +52,13 @@ ponownego pomiaru, połączenia wcześniej odrębnych jaskiń czy tylko redakcji
 Ustal również, czy wynik ma być samodzielnym opisem, aneksem do konkretnej wcześniejszej wersji czy
 scaloną aktualizacją całości.
 
+Przy samej redakcji językowej poprawiaj składnię, styl i czytelność dostarczonego tekstu,
+zachowując fakty, liczby, nazwy i stopień pewności informacji. Oddaj poprawiony fragment;
+ewentualne niejasności rzeczowe wskaż osobno. Kontrole wykonuj w granicach dostępnego tekstu,
+bez deklarowania weryfikacji terenowej lub pomiarowej. Pytania o dodatkowe materiały, budowę
+grafu, rejestry i obliczenia stosuj wtedy, gdy zadanie obejmuje analizę dokumentacji lub wymaga
+rozstrzygnięcia konkretnej niejasności, a nie jako warunek zwykłej korekty językowej.
+
 Nie zakładaj, że pierwszy punkt w pliku jest otworem, a najmniejszy numer oznacza początek
 opisywania. Oddziel kierunek wykonywania pomiarów, kolejność rekordów, kierunek eksploracji i
 kierunek narracji.
@@ -141,7 +148,7 @@ deklinacji do historycznego pomiaru i nie dodawaj poprawki drugi raz.
 
 Przyjmij jawnie układ roboczy E, N, Z: wschód, północ, wysokość dodatnia w górę. Dla odległości
 przestrzennej L, azymutu A liczonego zgodnie z ruchem wskazówek zegara od północy i nachylenia i
-względem poziomu stosuj:
+względem poziomu stosuj (L ≥ 0, −90° ≤ i ≤ 90°, H oznacza długość rzutu poziomego):
 
 ```text
 ΔE = L · cos(i) · sin(A)
@@ -150,15 +157,20 @@ względem poziomu stosuj:
 H  = L · cos(i)
 ```
 
-W kodzie przelicz kąty na jednostkę wymaganą przez funkcje trygonometryczne. Dane zenitalne, grady i
-inne konwencje najpierw świadomie sprowadź do tego układu. Dla azymutu magnetycznego i deklinacji
-dodatniej na wschód azymut geograficzny wynosi `A_mag + D` modulo 360°, ale tylko gdy poprawka nie
-została wcześniej zastosowana. Zbieżność południków siatki wymaga osobnego uwzględnienia.
+W kodzie przelicz kąty na jednostkę wymaganą przez funkcje trygonometryczne. Dla kąta w gradach
+`kąt_stopnie = 0,9 · kąt_grady`. Dla kąta zenitalnego z mierzonego od pionu w górę, wyrażonego
+w stopniach, `i = 90° − z`. Inne konwencje najpierw świadomie sprowadź do tego układu.
+Dla azymutu magnetycznego i deklinacji D dodatniej na wschód stosuj
+`A_geo = (A_mag + D) modulo 360°`, ale tylko gdy poprawka nie została wcześniej zastosowana.
+Zbieżność południków siatki wymaga osobnego uwzględnienia.
 
-Odwrócenie kierunku tej samej linii daje `A' = (A + 180°)` modulo 360° i `i' = −i`. Nie wykonuj tego
-ponownie dla odczytu już przeliczonego przez importer. Z różnic współrzędnych azymut wyznaczaj przez
-`atan2(ΔE, ΔN)`. Dla pionowej albo niemal pionowej linii nie przypisuj wiarygodnego kierunku
-poziomego na podstawie śladowych składowych.
+Zamiana początku i końca wektora pomiaru daje `A_rev = (A + 180°) modulo 360°` i `i_rev = −i`.
+Sama zmiana kolejności narracji nie zmienia danych źródłowych. Nie odwracaj ponownie odczytu
+już przeliczonego przez importer. Z różnic współrzędnych wyznaczaj azymut jako
+`A = degrees(atan2(ΔE, ΔN)) modulo 360°`, w przedziale [0°, 360°). Ten zapis zakłada konwencję
+funkcji `atan2(y, x)`, jak w Pythonie; sprawdź kolejność argumentów w używanym narzędziu.
+`degrees` oznacza przeliczenie wyniku z radianów na stopnie. Dla pionowej albo niemal pionowej
+linii nie przypisuj wiarygodnego kierunku poziomego na podstawie śladowych składowych.
 
 W opisie używaj kierunków geograficznych, gdy są ustalone. Bez takiego odniesienia zastosuj
 jednoznaczne nazwy i punkty, np. „w stronę Sali X”, oraz wskaż brak orientacji. Brak współrzędnych
@@ -392,7 +404,9 @@ podstawie atrakcyjniejszej opowieści.
 
 ## 16. Pytania i znaczniki redakcyjne
 
-Używaj stabilnych identyfikatorów problemów. W roboczym tekście stosuj jednolity zapis:
+Używaj stabilnych identyfikatorów problemów. Prefiks identyfikatora musi odpowiadać typowi
+znacznika według poniższych wzorców. Dla danego problemu używaj tej samej pary typu i
+identyfikatora w tekście oraz liście pytań:
 
 ```text
 [[BRAK:Q01 — czego brakuje i gdzie]]
@@ -407,8 +421,12 @@ już wiadomo, jakie rozstrzygnięcie jest potrzebne i dlaczego wpływa na tekst.
 warianty odpowiedzi, gdy ułatwiają doprecyzowanie, ale nie sugeruj użytkownikowi nieudokumentowanego
 faktu.
 
-Przykład: „K01, studnia między A.12 i A.15: w notatce 10 m, z pomiarów wynika 8,7 m różnicy
+Przykład: „W01, studnia między A.12 i A.15: w notatce 10 m, z pomiarów wynika 8,7 m różnicy
 wysokości stacji. Czy A.12 leży na krawędzi, a A.15 na dnie, czy są to inne miejsca?”.
+
+Użyj WERYFIKACJA, dopóki nie wiadomo, czy porównujesz tę samą wielkość, granice i stan zjawiska.
+SPRZECZNOŚĆ oznacza niezgodne ustalenia dotyczące tego samego, po uwzględnieniu precyzji i
+niepewności źródeł. Sama różnica liczb opisujących inne wielkości nie jest sprzecznością.
 
 Braki krytyczne dla orientacji, dowiązania i sensu pomiarów wyjaśniaj przed zależną od nich korektą.
 Mniejsze braki niech nie wstrzymują pozostałego opracowania. Zachowaj znacznik aż do
@@ -436,7 +454,8 @@ rozdziel pełną wersję archiwalną od wersji z ograniczonymi informacjami wra�
 
 ## 18. Forma wyniku i kontrola końcowa
 
-Dostarcz opis w zwykłych, czytelnych akapitach. Domyślny wynik obejmuje: krótki status opracowania i
+Przy samej redakcji językowej oddaj wynik zgodnie z sekcją 2. Przy opracowaniu dokumentacji
+dostarcz opis w zwykłych, czytelnych akapitach. Domyślny wynik obejmuje: krótki status opracowania i
 zakres, opis jaskini, najważniejsze korekty i pytania oraz listę koniecznych zmian na planie lub
 przekrojach. Wersja robocza zawiera znaczniki; wersja czysta nie może ukrywać nierozstrzygniętych
 sprzeczności. Może obejmować tylko wyraźnie zadeklarowany, zweryfikowany zakres.
@@ -473,13 +492,16 @@ informację, co sprawdzono rzeczywiście, a co pozostaje tylko założeniem.
 
 ## 20. Obowiązkowe przypadki kontrolne i rozpoczęcie pracy
 
-Przed zaakceptowaniem działania procedury sprawdź następujące rozróżnienia. To przykłady
-syntetyczne, nie informacje o mojej jaskini:
+Przy analizie dokumentacji sprawdź rozróżnienia mające zastosowanie do zadania. To przykłady
+syntetyczne, nie informacje o mojej jaskini. Tabela określa oczekiwane decyzje; samo jej
+przeczytanie nie jest wykonaną próbą działania prompta. Przy zmianach prompta oceniaj odpowiedzi
+na oddzielnych scenariuszach z pełnymi danymi wejściowymi i kryteriami, zachowując wynik próby:
 
 | Przypadek | Wymagany rezultat |
 | --- | --- |
 | Pomiar 10 m, nachylenie −60° | Różnica wysokości −8,660… m, rzut poziomy 5 m; brak automatycznej deklaracji głębokości studni. |
-| Ta sama linia opisywana odwrotnie | Azymut odwrócony o 180°, znak różnicy wysokości przeciwny; bez podwójnego odwracania już przeliczonego pomiaru. |
+| Zamiana początku i końca wektora pomiaru | Azymut odwrócony o 180°, znak różnicy wysokości przeciwny; bez podwójnego odwracania już przeliczonego pomiaru. |
+| Opisanie ciągu w odwrotnej kolejności | Zachowaj dane źródłowe; przeliczaj kierunek tylko dla relacji opisywanej od przeciwnego końca. |
 | Kolejne rzędne 0, −8, −5, −12 m | Rozpiętość 12 m i końcowe obniżenie 12 m, nie suma drogi pionowej 18 m. |
 | Odcinek w prawo na przekroju rozwiniętym | Nie przypisuj mu kierunku E. |
 | Korytarz wygląda pionowo na przekroju zrzutowanym | Zweryfikuj plan i pomiary; nie uznawaj go automatycznie za studnię. |
@@ -491,6 +513,7 @@ syntetyczne, nie informacje o mojej jaskini:
 | Koniec sesji przy widocznym dalszym korytarzu | Koniec pomiaru, nie koniec jaskini. |
 | Nowe partie od starego punktu, brak danych o otworze | Opis od dowiązania; nie dopisuj nowego otworu. |
 | Inna nazwa tego samego miejsca w opisie i na planie | Rejestr rozbieżności i uzgodnienie; bez cichej zamiany. |
+| Głębokość 10 m i różnica wysokości stacji 8,7 m, nieznane granice | WERYFIKACJA położenia stacji, bez przedwczesnej SPRZECZNOŚCI ani korekty głębokości. |
 | Nieznany format lub niewykonany import | Jawne ograniczenie, bez udawania odczytu. |
 
 Zacznij teraz od rozpoznania materiałów i zakresu. Jeżeli dane pozwalają, przejdź do analizy i
