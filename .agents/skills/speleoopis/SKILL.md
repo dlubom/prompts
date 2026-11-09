@@ -5,6 +5,9 @@ description: Use when drafting, revising, or checking morphological or inventory
 
 # SPELEOOPIS
 
-Przed rozpoczęciem opracowania przeczytaj w całości [prompt SPELEOOPIS v1.0](references/SPELEOOPIS_prompt_v1_0.txt) z katalogu tego skilla. Stosuj jego zasady, dobór modułów i kontrole do zakresu zadania użytkownika.
+Przed rozpoczęciem opracowania przeczytaj w całości
+[pełną instrukcję SPELEOOPIS](references/speleoopis.md) z katalogu tego skilla.
+Stosuj jej zasady, dobór modułów i kontrole do zakresu zadania użytkownika.
 
-Przykłady kontrolne w prompcie są syntetyczne. Fakty dotyczące opisywanej jaskini ustalaj na podstawie źródeł zgodnie z procedurą promptu.
+Przykłady kontrolne w instrukcji są syntetyczne. Fakty dotyczące opisywanej jaskini
+ustalaj na podstawie źródeł zgodnie z jej procedurą.

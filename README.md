@@ -4,9 +4,9 @@ Repozytorium promptów i skilli do Codexa.
 
 ## SPELEOOPIS
 
-[SPELEOOPIS](.agents/skills/speleoopis/SKILL.md) pomaga opracowywać opisy morfologiczne i inwentarzowe jaskiń. Łączy redakcję tekstu ze sprawdzaniem pomiarów, planów, przekrojów i wcześniejszej dokumentacji. Instrukcja skilla i prompt są napisane po polsku.
+[SPELEOOPIS](.agents/skills/speleoopis/SKILL.md) pomaga opracowywać opisy morfologiczne i inwentarzowe jaskiń. Łączy redakcję tekstu ze sprawdzaniem pomiarów, planów, przekrojów i wcześniejszej dokumentacji. Instrukcje są napisane po polsku.
 
-[Oryginalny prompt v1.0](.agents/skills/speleoopis/references/SPELEOOPIS_prompt_v1_0.txt) można też wykorzystać samodzielnie.
+[Pełną instrukcję SPELEOOPIS](.agents/skills/speleoopis/references/speleoopis.md) można też wykorzystać samodzielnie.
 
 ## Użycie w Codexie
 
